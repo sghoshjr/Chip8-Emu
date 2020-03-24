@@ -1,6 +1,8 @@
 # vscode 
 .vscode/
 build/
+tmp/
+.backup/
 
 # Prerequisites
 *.d
