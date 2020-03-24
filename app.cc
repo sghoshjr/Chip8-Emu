@@ -1,5 +1,10 @@
 #include "app.h"
 
+#include <atomic>
+
+extern std::atomic<bool> isRunning; //TODO:
+extern std::atomic<bool> shouldExit;
+
 App::App(const char *filename) {
     clock_msec = (1000/clock_hz);
 
@@ -242,7 +247,8 @@ void App::mainLoop() {
         glfwPollEvents();
 
     } while (glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS && 
-             glfwWindowShouldClose(window) == 0);
+             glfwWindowShouldClose(window) == 0 &&
+             !shouldExit.load(std::memory_order_relaxed));
 }
 
 
