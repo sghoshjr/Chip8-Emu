@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
 
     QApplication qt_app(argc, argv);
     GUI_MainWindow gui_mainWindow;
-    
+
     gui_mainWindow.show();
     return qt_app.exec();
 }
