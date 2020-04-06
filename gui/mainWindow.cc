@@ -2,14 +2,21 @@
 #include <thread>
 #include <atomic>
 #include "app.h"
+#include "qdebugstream.h"
 
-extern std::atomic<bool> isRunning; //TODO:
+extern std::atomic<bool> isRunning;  //TODO:
 extern std::atomic<bool> shouldExit;
 
 GUI_MainWindow::GUI_MainWindow(QMainWindow *parent) : QMainWindow(parent) {
     ui.setupUi(this);
+
+    //Redirect stdout and stderr to textEdit
+    log_stdout = std::make_shared<ThreadLogStream>(std::cout, this->ui.textEdit);
+    log_stderr = std::make_shared<ThreadLogStream>(std::cerr, this->ui.textEdit);
+
     //Set HTML Text
-    ui.textEdit->setHtml("<html><body>CHIP8-Emu</body></html>");
+    //TODO: Format Text
+    ui.textEdit->setHtml("<html><body>CHIP8-Emu");
 }
 
 void runChip8Emu(const char *filename) {

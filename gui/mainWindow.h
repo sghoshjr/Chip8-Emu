@@ -3,6 +3,7 @@
 
 #include "ui_mainWindow.h"
 #include <QString>
+#include "qdebugstream.h"
 
 class GUI_MainWindow : public QMainWindow {
     Q_OBJECT
@@ -16,6 +17,8 @@ class GUI_MainWindow : public QMainWindow {
 
   private:
     Ui::MainWindow ui;
+    std::shared_ptr<ThreadLogStream> log_stdout;
+    std::shared_ptr<ThreadLogStream> log_stderr;
 };
 
-#endif // GUI_MAINWINDOW_H
+#endif  // GUI_MAINWINDOW_H

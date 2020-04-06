@@ -33,9 +33,12 @@ set(SOURCES
     shader_utils.cc
     gui/mainWindow.cc
     gui/mainWindow.ui
+    gui/qdebugstream.cc
 )
 
-add_executable( chip8emu ${SOURCES} )
+SET(exec_file chip8emu)
+
+add_executable( ${exec_file} ${SOURCES} )
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(glfw3 REQUIRED)
@@ -50,7 +53,7 @@ elseif(UNIX)
     set(LIBRARY Qt5::Widgets GLEW::GLEW OpenGL::GL glfw pthread Xi X11 dl SDL2::SDL2)
 endif()
 
-target_link_libraries( chip8emu ${LIBRARY} )
+target_link_libraries( ${exec_file} ${LIBRARY} )
 
 # Copy ROM and shaders to build directory
 file(COPY rom shaders DESTINATION ${CMAKE_BINARY_DIR})

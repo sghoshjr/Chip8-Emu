@@ -20,6 +20,7 @@
 // #define USE_NVIDIA_OPTIMUS
 
 #include "app.h"
+#include "gui/qdebugstream.h"
 
 #ifdef USE_NVIDIA_OPTIMUS
 extern "C" 
@@ -42,6 +43,7 @@ int main(int argc, char *argv[]) {
 
     QApplication qt_app(argc, argv);
     GUI_MainWindow gui_mainWindow;
+    
     gui_mainWindow.show();
     return qt_app.exec();
 }
