@@ -34,6 +34,7 @@ set(SOURCES
     gui/mainWindow.cc
     gui/mainWindow.ui
     gui/qdebugstream.cc
+    utils/configReader.cc
 )
 
 SET(exec_file chip8emu)

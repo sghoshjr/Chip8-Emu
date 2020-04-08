@@ -13,6 +13,7 @@ Chip8::Chip8() : rngEngine(std::chrono::system_clock::now().time_since_epoch().c
  * Load CHIP8 ROM in 0x200-0xFFF memory section (2 byte OPCODE)
  */
 void Chip8::loadROM(const char *fname) {
+    std::cout << "Loading ROM : " << fname << std::endl;
     std::ifstream file(fname, std::ios::binary);
 
     if (file.is_open()) {

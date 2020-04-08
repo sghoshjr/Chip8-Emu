@@ -4,6 +4,9 @@ build/
 tmp/
 .backup/
 
+# Emulator
+chip8emu.ini
+
 # Prerequisites
 *.d
 

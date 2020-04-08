@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     shouldExit.store(false, std::memory_order_relaxed);
 
     QApplication qt_app(argc, argv);
-    GUI_MainWindow gui_mainWindow;
+    GUI_MainWindow gui_mainWindow(argv[0]);
 
     gui_mainWindow.show();
     return qt_app.exec();
